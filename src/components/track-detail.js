@@ -1,15 +1,8 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import {
-  colors,
-  Button,
-  IconRun,
-  IconView,
-  IconTime,
-  IconBook,
-} from '../styles';
-import { humanReadableTimeFromSeconds } from '../utils/helpers';
-import { Link } from '@reach/router';
+import {Button, colors, IconBook, IconRun, IconTime, IconView,} from '../styles';
+import {humanReadableTimeFromSeconds} from '../utils/helpers';
+import {Link} from '@reach/router';
 import ContentSection from './content-section';
 import MarkDown from './md-content';
 
@@ -18,18 +11,27 @@ import MarkDown from './md-content';
  * author, length, number of views, modules list, among other things.
  * It provides access to the first module of the track.
  */
-const TrackDetail = ({ track }) => {
-  const { title, description, thumbnail, author, length, modulesCount, modules, numberOfViews } = track;
+const TrackDetail = ({track}) => {
+  const {
+    title,
+    description,
+    thumbnail,
+    author,
+    length,
+    modulesCount,
+    modules,
+    numberOfViews,
+  } = track;
 
   return (
-    <ContentSection>
-      <CoverImage src={thumbnail} alt="" />
-      <TrackDetails>
-        <DetailRow>
-          <h1>{title}</h1>
-        </DetailRow>
-        <DetailRow>
-          <DetailItem>
+      <ContentSection>
+        <CoverImage src={thumbnail} alt=""/>
+        <TrackDetails>
+          <DetailRow>
+            <h1>{title}</h1>
+          </DetailRow>
+          <DetailRow>
+            <DetailItem>
             <h4>Track details</h4>
             <IconAndLabel>
               <IconView width="16px" />
@@ -66,10 +68,12 @@ const TrackDetail = ({ track }) => {
             <h4>Modules</h4>
             <ul>
               {modules.map((module) => (
-                <li key={module.title}>
-                  <div>{module.title}</div>
-                  <ModuleLength>{humanReadableTimeFromSeconds(module.length)}</ModuleLength>
-                </li>
+                  <li key={module.title}>
+                    <div>{module.title}</div>
+                    <ModuleLength>
+                      {humanReadableTimeFromSeconds(module.length)}
+                    </ModuleLength>
+                  </li>
               ))}
             </ul>
           </DetailItem>
